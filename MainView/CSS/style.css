@@ -13,17 +13,17 @@ nav ul{
     text-align: center;
 }
 
-nav li{
+nav a{
     display: inline-block;
     color: white;
     padding: 0 20px;
+    text-decoration: none;
 }
 .people-list{
     margin: 30px 60px 80px;
     border: solid 5px #333333;
     box-shadow: 0 0 45px 0 rgba(255, 255, 255, 0.5);
     background: linear-gradient(115deg, transparent, transparent 49%, #333333 49.5%, #333333 50%, transparent 50%, transparent); 
-    /* background: linear-gradient(to left top, transparent 50%, black 49.5%, black 50.5%, transparent 50%);*/
 }
 
 .people-list:hover{
@@ -32,8 +32,8 @@ nav li{
 
 .people{
     display: inline-block;
-    padding: 150px 150px;
-    opacity: 0;
+    padding: 150px;
+    opacity: 0.1;
 }
 .people:hover{
     transition: .7s;
@@ -62,4 +62,32 @@ nav li{
 footer{
     background-color: darkgrey;
     bottom: 100%;
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1330px){
+    .people{
+        padding: 100px;
+    }
+
+    .people-list{
+        background: none; 
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .people{
+        padding: 70px;
+        opacity: 1;
+    }
+    .people-list{
+        background: none; 
+    }
+
+    .people img{
+        width: 200px;
+        box-shadow: none;
+    }
+    .people img:hover {
+        box-shadow: none;
+    }
 }
