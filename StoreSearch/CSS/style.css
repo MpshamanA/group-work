@@ -1,0 +1,34 @@
+@import url(./sanitize.css);
+
+
+ 
+.shop {
+    display: inline-block;
+    text-align: right;
+}
+
+.shop ul{
+    list-style: none;
+}
+
+.shop-category{
+    border-radius: 20%;
+    display: inline-block;
+}
+
+.izakaya{
+    background-color: #99FF99;
+    box-shadow: 0 0 5px 1px #ccc; 
+}
+
+.shop-name{
+    text-align: center;
+}
+
+.shop-address{
+    text-align: left;
+}
+
+.shop-special{
+    text-align: center;
+}
