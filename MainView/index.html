@@ -12,17 +12,28 @@
     <header>
         <nav>
             <ul>
-                <a href="../StoreSearch/index.html"><p>SHOP</p></a>
-                <a href="#"><p>hoge</p></a>
-                <a href="#"><p>hoge</p></a>
-                <a href="#"><p>hoge</p></a>
+                <a href="../StoreSearch/index.html">
+                    <p>SHOP</p>
+                </a>
+                <a href="#">
+                    <p>hoge</p>
+                </a>
+                <a href="#">
+                    <p>hoge</p>
+                </a>
+                <a href="#">
+                    <p>hoge</p>
+                </a>
             </ul>
         </nav>
     </header>
+    <div id="loader">
+        <div class="loader">Loading...</div>
+    </div>
     <div id="app">
         <section class="first">
             <div class="people-list">
-                <div class="people" v-for = "people in peoples">
+                <div class="people" v-for="people in peoples">
                     <img :src="people.path" class="topimg" alt="">
                     <h3>{{people.name}}</h3>
                 </div>

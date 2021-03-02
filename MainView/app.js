@@ -1,3 +1,12 @@
+/*ローティング処理用*/
+addEventListener('load',function(){
+    const loader = document.getElementById("loader")
+    loader.classList.add("loader-aft")
+})
+
+
+
+
 const people = [
     {
         "name":"Sho Iwasaki",
