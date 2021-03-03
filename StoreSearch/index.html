@@ -17,16 +17,7 @@
             <input type="button" value="検索" id="searchbtn" onclick="onButtonClick();">
         </form>
 
-        <div id="shop" class="shop" v-for="shop in shopList">
-            <ul>
-                <img :src="shop.image" alt="">
-                <div class="contents">
-                    <li id="shop-category" class="shop-category">{{shop.category}}</li>
-                    <li class="shop-name">{{shop.name}}</li>
-                    <li class="shop-address">{{shop.address}}</li>
-                    <li class="shop-special">{{shop.special}}</li>
-                </div>
-            </ul>
+        <div id="shop" class="shop">
         </div>
     </div>
     <a href="../MainView/index.html">戻る</a>
