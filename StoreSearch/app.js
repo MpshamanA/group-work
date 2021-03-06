@@ -81,52 +81,46 @@ const shopList = [
 ];
 
 let shop = document.getElementById('shop');
+let div = document.createElement('div');
+div.setAttribute('id', 'drop');
 
-for (let i = 0; i < shopList.length; i++) {
-    let div = document.createElement('div');
-    div.className = 'remove';
-    let ul = document.createElement('ul');
-    ul.className = 'list';
-    //イメージを取得
-    let img = document.createElement('img');
-    img.setAttribute('src', shopList[i].image);
+let Receive = function (rcvedata) {
+    for (let i = 0; i < rcvedata.length; i++) {
+        let ul = document.createElement('ul');
+        ul.className = 'list';
+        //イメージを取得
+        let img = document.createElement('img');
+        img.setAttribute('src', rcvedata[i].image);
 
-    let contents = document.createElement('div');
-    contents.className = 'contents';
+        let contents = document.createElement('div');
+        contents.className = 'contents';
 
-    let liC = document.createElement('li');
-    liC.className = 'shop-category';
-    liC.innerHTML = shopList[i].category;
+        let liC = document.createElement('li');
+        liC.className = 'shop-category';
+        liC.innerHTML = rcvedata[i].category;
 
-    let liN = document.createElement('li');
-    liN.className = 'shop-name';
-    liN.innerHTML = shopList[i].name;
+        let liN = document.createElement('li');
+        liN.className = 'shop-name';
+        liN.innerHTML = rcvedata[i].name;
 
-    let liA = document.createElement('li');
-    liA.className = 'shop-address';
-    liA.innerHTML = shopList[i].address
+        let liA = document.createElement('li');
+        liA.className = 'shop-address';
+        liA.innerHTML = rcvedata[i].address
 
-    let liS = document.createElement('li');
-    liS.className = 'shop-special';
-    liS.innerHTML = shopList[i].special
-
-    /* shop.appendChild(ul);
-    ul.appendChild(img);
-    contents.appendChild(liC);
-    contents.appendChild(liN);
-    contents.appendChild(liA);
-    contents.appendChild(liS);
-    ul.appendChild(contents); */
-
-    shop.appendChild(div);
-    ul.appendChild(img);
-    contents.appendChild(liC);
-    contents.appendChild(liN);
-    contents.appendChild(liA);
-    contents.appendChild(liS);
-    ul.appendChild(contents);
-    div.appendChild(ul);
+        let liS = document.createElement('li');
+        liS.className = 'shop-special';
+        liS.innerHTML = rcvedata[i].special
+        ul.appendChild(img);
+        contents.appendChild(liC);
+        contents.appendChild(liN);
+        contents.appendChild(liA);
+        contents.appendChild(liS);
+        ul.appendChild(contents);
+        div.appendChild(ul);
+        shop.appendChild(div);
+    };
 };
+Receive(shopList);
 
 const keyword = document.getElementById("keyword");
 const searchbtn = document.getElementById('searchbtn');
@@ -138,46 +132,10 @@ function onButtonClick() {
     const test = shopList.filter((shop) => {
         return (shop.category.match(key));
     });
-    
     if (key !== "") {
-        const uls = document.getElementsByClassName('list');
-        for (let i = 0; i < test.length; i++) {
-            let ul = document.createElement('ul');
-            ul.className = 'list';
-            //イメージを取得
-            let img = document.createElement('img');
-            img.setAttribute('src', test[i].image);
-
-            let contents = document.createElement('div');
-            contents.className = 'contents';
-
-            let liC = document.createElement('li');
-            liC.className = 'shop-category';
-            liC.innerHTML = test[i].category;
-
-            let liN = document.createElement('li');
-            liN.className = 'shop-name';
-            liN.innerHTML = test[i].name;
-
-            let liA = document.createElement('li');
-            liA.className = 'shop-address';
-            liA.innerHTML = test[i].address
-
-            let liS = document.createElement('li');
-            liS.className = 'shop-special';
-            liS.innerHTML = test[i].special
-
-            shop.appendChild(ul);
-            ul.appendChild(img);
-            contents.appendChild(liC);
-            contents.appendChild(liN);
-            contents.appendChild(liA);
-            contents.appendChild(liS);
-            ul.appendChild(contents);
-        };
-
+        div.remove();
+        /* Receive(test); */
     };
-
 };
 
 /* const app = new Vue({
