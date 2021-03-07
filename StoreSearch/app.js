@@ -80,12 +80,22 @@ const shopList = [
     }
 ];
 
+const button = document.getElementById('APItest');
+const url = "https://jsonplaceholder.typicode.com/users";
+
+button.addEventListener("click", async function () {
+    const res = await fetch(url);
+    const NshopList = await res.json();
+    console.log(NshopList);
+});
+
 let shop = document.getElementById('shop');
 let div = document.createElement('div');
 div.setAttribute('id', 'drop');
 
-let Receive = function (rcvedata) {
+let Receive = function (rcvedata, div1) {
     for (let i = 0; i < rcvedata.length; i++) {
+        //DOM操作
         let ul = document.createElement('ul');
         ul.className = 'list';
         //イメージを取得
@@ -116,35 +126,30 @@ let Receive = function (rcvedata) {
         contents.appendChild(liA);
         contents.appendChild(liS);
         ul.appendChild(contents);
-        div.appendChild(ul);
-        shop.appendChild(div);
+        div1.appendChild(ul);
+        shop.appendChild(div1);
     };
 };
-Receive(shopList);
 
 const keyword = document.getElementById("keyword");
 const searchbtn = document.getElementById('searchbtn');
 
 function onButtonClick() {
+
     //form内の検索ワード取得
     let key = document.forms.search.keyword.value;
     //検索ワードが含まれるデータを変数に代入
-    const test = shopList.filter((shop) => {
-        return (shop.category.match(key));
-    });
     if (key !== "") {
-        div.remove();
-        /* Receive(test); */
+        const test = shopList.filter((shop) => {
+            return (shop.category.match(key));
+        });
+        //検索結果次第で条件分岐
+        if (test.length != 0) {
+            Receive(test, div);
+        } else {
+            shop.innerHTML = '<p>検索結果が見つかりませんでした</p>';
+        };
+    } else {
+        shop.innerHTML = '<p>検索結果が見つかりませんでした</p>';
     };
 };
-
-/* const app = new Vue({
-    el: "#app",
-    data: {
-        shopList: []
-    },
-    created: function () {
-        this.shopList = shopList;
-    }
-});
- */

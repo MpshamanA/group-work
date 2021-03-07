@@ -1,19 +1,13 @@
 @import url(./sanitize.css);
 
-
  
-.shop {
-    display: inline-block;
-    text-align: right;
-}
-
 .shop ul{
     list-style: none;
+    display: inline-block;
 }
 
 .shop-category{
     border-radius: 20%;
-    display: inline-block;
 }
 
 .izakaya{
@@ -31,4 +25,7 @@
 
 .shop-special{
     text-align: center;
+}
+#search{
+    padding-left: 20px;
 }
