@@ -81,7 +81,7 @@ const shopList = [
 ];
 
 const button = document.getElementById('APItest');
-const url = "https://jsonplaceholder.typicode.com/users";
+const url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=[499fc73823c730ec]&lat=34.67&lng=135.52&range=5&order=4&format=jsonp&callback=?";
 
 button.addEventListener("click", async function () {
     const res = await fetch(url);
@@ -145,11 +145,20 @@ function onButtonClick() {
         });
         //検索結果次第で条件分岐
         if (test.length != 0) {
+            shop.innerHTML = '<p></p>'
             Receive(test, div);
+
         } else {
             shop.innerHTML = '<p>検索結果が見つかりませんでした</p>';
         };
     } else {
-        shop.innerHTML = '<p>検索結果が見つかりませんでした</p>';
+        shop.innerHTML = '<p>検索ワードをご入力ください</p>';
     };
 };
+
+//スクロールアクション
+$('.slider').slick({
+    autoplay:true,
+    autoplaySpeed:4000,
+    dots:true,
+});
