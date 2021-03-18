@@ -81,7 +81,7 @@ const shopList = [
 ];
 
 const button = document.getElementById('APItest');
-const url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=[499fc73823c730ec]&lat=34.67&lng=135.52&range=5&order=4&format=jsonp&callback=?";
+const url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=??????&lat=34.67&lng=135.52&range=5&order=4&format=jsonp&callback=?";
 
 button.addEventListener("click", async function () {
     const res = await fetch(url);
