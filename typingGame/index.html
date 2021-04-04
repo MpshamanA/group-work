@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tipingGame</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="startFlg" class="content">
+            <p id="timer">00:00.000</p>
+        </div>
+        <div class="container">
+            <div class="title">
+                <h1>Typing Game</h1>
+                <div class="maeker"></div>
+            </div>
+            <button v-if="startFlg != true" class="startButton mb-20" @click="gameStart()">START</button>
+            <div v-if="startFlg">
+                <div class="question mb-20">{{current_question}}</div>
+                <div v-if="current_question_counts == question_counts" class="clear">Clere!</div>
+                <div class="typeFormWrapper mb-20">
+                    <!-- 全問正解したらtextboxを閉じる -->
+                    <input id="typeForm" v-if="current_question_counts != question_counts" v-model="typeBox" type="text"
+                        class="typeForm">
+                </div>
+
+                <div class="gaugeWrapper mb-20">
+                    <div v-bind:style="styleOb" class="gauge"></div>
+                </div>
+                <div>{{current_question_counts}}/{{question_counts}}</div>
+                <button @click="reload()">戻る</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>

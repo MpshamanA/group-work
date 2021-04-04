@@ -1,0 +1,94 @@
+@import url(./sanitize.css);
+ body{
+     font-size: 30px;
+ }
+
+ .mb-20{
+     margin-bottom: 20px;
+ }
+
+ .content{
+     padding-left: 30px;
+     float: left;
+ }
+
+ #timer{
+     text-align: center;
+     font-size: 15px;
+     border: 1px solid #ccc;
+     padding: 13px;
+     background-color: #000;
+     color: #fff;
+     border-radius: 3px;
+     box-shadow: 1px 1px 3px rgba(0,0,0,.5);
+     width: 150px;
+ }
+
+ .container{
+     width: 400px;
+     margin: 0 auto;
+     text-align: center;
+ }
+
+ .title{
+     padding: 30px 0 0;
+     position: relative;
+     font-size: 48px;
+ }
+
+ .title h1 {
+     font-size: 48px;
+ }
+
+ .maeker{
+     width: 100%;
+     height: 15%;
+     background-color: #a2a2a270;
+     position: absolute;
+     bottom: 5%;
+     z-index: -1;
+ }
+
+ .startButton{
+     background-color: #333;
+     color: #fff;
+     padding: 10px 60px;
+     border: none;
+     outline: none;
+     border-radius: 8px;
+     cursor: pointer;
+ }
+
+ .startButton:hover{
+     opacity: 0.7;
+ }
+
+ .question{
+     color: grey;
+ }
+
+ .clear{
+     color: #03a9f4;
+ }
+
+ .typeForm{
+     text-align: center;
+     outline: none;
+     border: none;
+     width: 100%;
+     font-size: 30px;
+ }
+
+ .typeFormWrapper{
+     border-bottom: 1px solid gray;
+ }
+
+ .gauge{
+     height: 8px;
+     transition: all .2s ease;
+ }
+
+ .gaugeWrapper{
+     border: 1px solid;
+     height: 10px;
+ }
