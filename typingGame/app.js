@@ -11,6 +11,8 @@ new Vue({
     questionLen: 0,
     startTime: "",
     time: "00:00:000",
+    timer: "",
+    scoreList: [],
   },
   computed: {
     styleOb: function () {
@@ -40,8 +42,9 @@ new Vue({
       const m = String(d.getMinutes()).padStart(2, "0");
       const s = String(d.getSeconds()).padStart(2, "0");
       const ms = String(d.getMilliseconds()).padStart(3, "0");
+      //テンプレートリテラル ${変数名}とすることで変数を展開できる
       this.time = `${m}:${s}:${ms}`;
-      setTimeout(() => {
+      this.timer = setTimeout(() => {
         this.countUp();
       }, 10);
     },
@@ -74,6 +77,10 @@ new Vue({
         this.current_question = this.questionList[0];
         this.typeBox = "";
         this.current_question_counts = this.current_question_counts + 1;
+        //正解数が問題数と一致したらタイマーを止める
+      } else if (this.current_question_counts == this.questionLen) {
+        clearInterval(this.timer);
+        this.scoreList.push(this.time);
       }
     },
   },

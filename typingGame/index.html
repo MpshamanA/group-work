@@ -46,6 +46,12 @@
             <div v-bind:style="styleOb" class="gauge"></div>
           </div>
           <div>{{current_question_counts}}/{{question_counts}}</div>
+          <div
+            v-if="current_question_counts == question_counts"
+            v-for="score in scoreList"
+          >
+            score:{{score}}
+          </div>
           <button @click="reload()">戻る</button>
         </div>
       </div>
